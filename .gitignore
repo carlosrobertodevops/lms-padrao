@@ -1,6 +1,6 @@
 .DS_Store
-# .env
+.env
 client/.next
 client/node_modules
 server/node_modules
-# .sh
+.sh
