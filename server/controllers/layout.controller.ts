@@ -73,6 +73,7 @@ export const editLayout = CatchAsyncError(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { type } = req.body;
+      // Banner
       if (type === "Banner") {
         const bannerData: any = await LayoutModel.findOne({ type: "Banner" });
         const { image, title, subTitle } = req.body;
@@ -99,6 +100,7 @@ export const editLayout = CatchAsyncError(
         await LayoutModel.findByIdAndUpdate(bannerData._id, { banner });
       }
 
+      // Fag
       if (type === "FAQ") {
         const { faq } = req.body;
         const FaqItem = await LayoutModel.findOne({ type: "FAQ" });
@@ -115,6 +117,8 @@ export const editLayout = CatchAsyncError(
           faq: faqItems,
         });
       }
+
+      // Categories
       if (type === "Categories") {
         const { categories } = req.body;
         const categoriesData = await LayoutModel.findOne({
